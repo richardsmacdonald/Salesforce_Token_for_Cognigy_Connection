@@ -1,0 +1,18 @@
+{
+	"compilerOptions": {
+		"target": "es2019",
+		"module": "commonjs",
+		"moduleResolution": "node",
+		"rootDir": "src",
+		"outDir": "build",
+		"allowJs": true,
+		"checkJs": false,
+		"esModuleInterop": true,
+		"skipLibCheck": true,
+		"strict": false,
+		"noEmitOnError": false,
+		"sourceMap": false,
+		"declaration": false
+	},
+	"include": ["src/**/*"]
+}
