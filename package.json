@@ -1,0 +1,17 @@
+{
+	"name": "salesforce-token-extension",
+	"version": "1.1.0",
+	"description": "Cognigy Extension that requests a Salesforce OAuth access token with an application/x-www-form-urlencoded POST.",
+	"main": "build/module.js",
+	"license": "MIT",
+	"scripts": {
+		"build": "tsc -p ."
+	},
+	"dependencies": {
+		"@cognigy/extension-tools": "^0.17.0"
+	},
+	"devDependencies": {
+		"@types/node": "^22.10.2",
+		"typescript": "^5.9.2"
+	}
+}
