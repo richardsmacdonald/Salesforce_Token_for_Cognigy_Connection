@@ -25,11 +25,13 @@ Adds one Extension Node that requests an OAuth access token from Salesforce.
 | `tokenUrl`           | –                  | The full token endpoint URL of your CXOne tenant   |
 | `responseContextKey` | `sfAuth`           | Context key holding `{ success, status, data }`   |
 | `tokenContextKey`    | `sfAccessToken`    | Context key holding the `access_token` string     |
+| `creationContextKey` | `sfAccessTokenCrTm`| Context key holding the `issued_at` string     |
 
 A successful run stores:
 
     context.sfAuth = { success: true, status: 200, data: { access_token: "...", ... } }
     context.sfAccessToken = "..."
+	context.sfAccessTokenCrTm = "..."
 
 A failed run never throws; it stores the reason:
 
