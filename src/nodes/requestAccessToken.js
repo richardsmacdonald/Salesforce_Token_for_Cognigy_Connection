@@ -56,12 +56,19 @@ export const requestAccessToken = createNodeDescriptor({
 			label: "Context key for the access token",
 			type: "cognigyText",
 			defaultValue: "sfAccessToken"
-		}
+		},
+		{
+			key: "creationContextKey",
+			label: "Context key for the access token creation time",
+			type: "cognigyText",
+			defaultValue: "sfAccessTokenCrTm"
+		}		
 	],
 	function: async ({ cognigy, config }) => {
 		const { api } = cognigy;
 		const responseKey = trim(config.responseContextKey) || "sfAuth";
 		const tokenKey = trim(config.tokenContextKey);
+		const tokenKeyCrTm = trim(config.creationContextKey);
 		const connection = config.connection || {};
 
 		const tokenUrl = trim(config.tokenUrl);
@@ -97,6 +104,12 @@ export const requestAccessToken = createNodeDescriptor({
 				if (tokenKey && token) {
 					api.addToContext(tokenKey, token, "simple");
 				}
+				
+				const tokenCrTm = data && typeof data === "object" ? data.issued_at : undefined;
+
+				if (tokenKeyCrTm && tokenCrTm) {
+					api.addToContext(tokenKeyCrTm, tokenCrTm, "simple");
+				}				
 
 				return;
 			}
